@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/expense_calculator"
+        android:orderInCategory="1"
+        android:title="Калькулятор расходов"
+        android:onClick="showExpenseCalculator" />
+
+    <item
+        android:id="@+id/map"
+        android:orderInCategory="2"
+        android:title="Карта"
+        android:onClick="showMap"/>
+    <item
+        android:id="@+id/currency_rate"
+        android:orderInCategory="3"
+        android:title="Курс валют"
+        android:onClick="showCurrencyRate"/>
+</menu>
