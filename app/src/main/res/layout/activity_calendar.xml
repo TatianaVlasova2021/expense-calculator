@@ -4,37 +4,79 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".Calendar">
+  tools:context=".CalendarActivity">
 
   <include
     android:id="@+id/toolbar_back_button"
     layout="@layout/toolbar_back_button" />
 
-  <LinearLayout
+  <FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center_horizontal">
-      <CalendarView
-        android:layout_width="wrap_content"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:layout_gravity="center_vertical">
+      <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="200dp"
-        android:background="@color/grey" />
+        android:orientation="horizontal">
+
+        <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:orientation="vertical">
+
+          <Spinner
+            android:id="@+id/months"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="18dp" />
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dark_grey"/>
+        </LinearLayout>
+
+        <LinearLayout
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentRight="true"
+          android:orientation="vertical">
+
+          <Spinner
+            android:id="@+id/years"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="18dp" />
+          <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/dark_grey"/>
+        </LinearLayout>
+      </RelativeLayout>
 
       <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:text="Калькулятор расходов и доходов"
+        android:layout_marginTop="50dp"
+        android:text="Показать операции"
         android:textSize="18dp"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:background="@drawable/green_button_background"
         android:onClick="showExpenseCalculator"/>
-  </LinearLayout>
+    </LinearLayout>
+  </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,33 +5,34 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   tools:context=".ExpenseCalculatorActivity">
+  <include
+    android:id="@+id/toolbar_back_button"
+    layout="@layout/toolbar_back_button" />
 
   <ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_constraintTop_toTopOf="parent">
+    android:layout_height="wrap_content"
+    app:layout_constraintTop_toBottomOf="@id/toolbar_back_button">
 
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="vertical"
-      android:gravity="center"
-      android:paddingBottom="20dp">
-
-      <include
-        android:id="@+id/toolbar_back_button"
-        layout="@layout/toolbar_back_button" />
-
+      android:paddingLeft="20dp"
+      android:paddingRight="20dp"
+      android:paddingBottom="100dp">
       <LinearLayout
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:orientation="vertical"
         android:paddingTop="16dp"
         android:paddingBottom="16dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:elevation="10dp"
+        android:elevation="8dp"
         android:background="@drawable/section_background">
 
         <RelativeLayout
@@ -50,13 +51,13 @@
           </TextView>
 
           <EditText
+            android:id="@+id/total_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:focusable="false"
             android:longClickable="false"
             android:cursorVisible="false"
             android:fontFamily="@font/roboto_bold"
-            android:text="4800 ₽"
             android:textColor="@color/black"
             android:textSize="24dp"
             android:textStyle="bold"
@@ -92,13 +93,13 @@
               android:textColor="@color/black" />
 
             <EditText
+              android:id="@+id/total_income"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:focusable="false"
               android:longClickable="false"
               android:cursorVisible="false"
               android:fontFamily="@font/roboto_bold"
-              android:text="+ 6000 ₽"
               android:textColor="@color/green"
               android:textSize="22dp"
               android:textStyle="bold"
@@ -132,18 +133,18 @@
 
 
             <EditText
+              android:id="@+id/total_expenses"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:focusable="false"
-              android:longClickable="false"
+              android:layout_marginTop="6dp"
+              android:background="@android:color/transparent"
               android:cursorVisible="false"
+              android:focusable="false"
               android:fontFamily="@font/roboto_bold"
-              android:text="- 1200 ₽"
+              android:longClickable="false"
               android:textColor="@color/red"
               android:textSize="22dp"
-              android:textStyle="bold"
-              android:layout_marginTop="6dp"
-              android:background="@android:color/transparent" />
+              android:textStyle="bold" />
 
           </LinearLayout>
 
@@ -151,11 +152,14 @@
       </LinearLayout>
 
       <LinearLayout
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:background="@drawable/section_background"
-        android:elevation="10dp"
+        android:elevation="8dp"
         android:orientation="vertical"
         android:gravity="center"
         android:paddingTop="16dp"
@@ -189,7 +193,7 @@
           app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-          android:id="@+id/money"
+          android:id="@+id/cost"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginTop="10dp"
@@ -208,6 +212,7 @@
           android:layout_marginTop="14dp">
 
           <Button
+            android:id="@+id/add_income_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/green_button_background"
@@ -224,6 +229,7 @@
             android:layout_alignParentLeft="true" />
 
           <Button
+            android:id="@+id/add_expense_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/red_button_background"
@@ -241,199 +247,11 @@
         </RelativeLayout>
       </LinearLayout>
 
-      <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/green_button_background"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:text="Показать операции за текущий месяц"
-        android:textSize="18dp"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:layout_marginTop="40dp"/>
-
       <LinearLayout
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/green_operation_background"
-        android:layout_marginTop="40dp"
-        android:paddingTop="1dp"
-        android:paddingBottom="1dp"
-        android:gravity="center">
-        
-        <RelativeLayout
-          android:layout_width="310dp"
-          android:layout_height="50dp"
-          android:background="@color/white"
-          android:paddingTop="1dp"
-          android:paddingBottom="10dp"
-          android:paddingLeft="10dp"
-          android:paddingRight="10dp">
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="1dp"
-            android:fontFamily="@font/roboto"
-            android:text="21.03.21"
-            android:textColor="@color/very_dark_grey"
-            android:textSize="12dp" />
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Доход"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:layout_centerVertical="true" />
-
-          <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/close"
-            android:layout_alignParentRight="true"
-            android:background="@android:color/transparent"
-            android:layout_centerVertical="true" />
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+5000 ₽"
-            android:fontFamily="@font/roboto"
-            android:textSize="18dp"
-            android:textColor="@color/black"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
-            android:layout_centerVertical="true"/>
-
-        </RelativeLayout>
-      </LinearLayout>
-
-
-      <LinearLayout
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/red_operation_background"
-        android:layout_marginTop="20dp"
-        android:paddingTop="1dp"
-        android:paddingBottom="1dp"
-        android:gravity="center">
-
-        <RelativeLayout
-          android:layout_width="310dp"
-          android:layout_height="50dp"
-          android:background="@color/white"
-          android:paddingTop="1dp"
-          android:paddingBottom="10dp"
-          android:paddingLeft="10dp"
-          android:paddingRight="10dp">
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="1dp"
-            android:fontFamily="@font/roboto"
-            android:text="21.03.21"
-            android:textColor="@color/very_dark_grey"
-            android:textSize="12dp" />
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Расход"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:layout_centerVertical="true" />
-
-          <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/close"
-            android:layout_alignParentRight="true"
-            android:background="@android:color/transparent"
-            android:layout_centerVertical="true" />
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="-500 ₽"
-            android:fontFamily="@font/roboto"
-            android:textSize="18dp"
-            android:textColor="@color/black"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
-            android:layout_centerVertical="true"/>
-
-        </RelativeLayout>
-      </LinearLayout>
-
-
-      <LinearLayout
-        android:layout_width="340dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/green_operation_background"
-        android:layout_marginTop="20dp"
-        android:paddingTop="1dp"
-        android:paddingBottom="1dp"
-        android:gravity="center">
-
-        <RelativeLayout
-          android:layout_width="310dp"
-          android:layout_height="50dp"
-          android:background="@color/white"
-          android:paddingTop="1dp"
-          android:paddingBottom="10dp"
-          android:paddingLeft="10dp"
-          android:paddingRight="10dp">
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="1dp"
-            android:fontFamily="@font/roboto"
-            android:text="21.03.21"
-            android:textColor="@color/very_dark_grey"
-            android:textSize="12dp" />
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Доход"
-            android:fontFamily="@font/roboto"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:layout_centerVertical="true" />
-
-          <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/close"
-            android:layout_alignParentRight="true"
-            android:background="@android:color/transparent"
-            android:layout_centerVertical="true" />
-
-          <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="+800 ₽"
-            android:fontFamily="@font/roboto"
-            android:textSize="18dp"
-            android:textColor="@color/black"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="30dp"
-            android:layout_centerVertical="true"/>
-
-        </RelativeLayout>
-      </LinearLayout>
-
+        android:id="@+id/operations_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"></LinearLayout>
     </LinearLayout>
-
   </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showExpenseCalculator(MenuItem item)
     {
-        Intent intent = new Intent(this, Calendar.class);
+        Intent intent = new Intent(this, CalendarActivity.class);
         startActivity(intent);
     }
 
