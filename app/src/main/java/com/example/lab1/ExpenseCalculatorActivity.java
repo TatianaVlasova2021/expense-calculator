@@ -49,7 +49,6 @@ public class ExpenseCalculatorActivity extends AppCompatActivity {
 
         dbHelper = new DatabaseHelper(this);
 
-
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,12 +65,13 @@ public class ExpenseCalculatorActivity extends AppCompatActivity {
 
                     switch (view.getId()) {
                         case R.id.add_expense_button:
+                            contentValues.put(dbHelper.COLUMN_NAME, operationName);
+                            contentValues.put(dbHelper.COLUMN_COST,
+                                    Integer.parseInt("-" + operationCost));
+                            contentValues.put(dbHelper.COLUMN_DATE, operationDate);
+
                             db.beginTransaction();
                             try {
-                                contentValues.put(dbHelper.COLUMN_NAME, operationName);
-                                contentValues.put(dbHelper.COLUMN_COST,
-                                                  Integer.parseInt("-" + operationCost));
-                                contentValues.put(dbHelper.COLUMN_DATE, operationDate);
                                 db.insert(dbHelper.TABLE_OPERATIONS, null, contentValues);
                                 db.setTransactionSuccessful();
                             } finally {
@@ -79,12 +79,13 @@ public class ExpenseCalculatorActivity extends AppCompatActivity {
                             }
                             break;
                         case R.id.add_income_button:
+                            contentValues.put(dbHelper.COLUMN_NAME, operationName);
+                            contentValues.put(dbHelper.COLUMN_COST,
+                                    Integer.parseInt(operationCost));
+                            contentValues.put(dbHelper.COLUMN_DATE, operationDate);
+
                             db.beginTransaction();
                             try {
-                                contentValues.put(dbHelper.COLUMN_NAME, operationName);
-                                contentValues.put(dbHelper.COLUMN_COST,
-                                        Integer.parseInt(operationCost));
-                                contentValues.put(dbHelper.COLUMN_DATE, operationDate);
                                 db.insert(dbHelper.TABLE_OPERATIONS, null, contentValues);
                                 db.setTransactionSuccessful();
                             } finally {

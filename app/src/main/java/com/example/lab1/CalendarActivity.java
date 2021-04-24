@@ -33,17 +33,8 @@ public class CalendarActivity extends AppCompatActivity {
         });
 
 
-
-        Spinner monthsSpinner = (Spinner) findViewById(R.id.months);
-
-        String[] months = {"Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
-                "Июль", "Август", "Сентрябрь", "Октябрь", "Ноябрь", "Декабрь"};
-
-        ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, months);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        monthsSpinner.setAdapter(adapter);
-
+        Spinner monthsSpinner = findViewById(R.id.months);
+        Spinner yearsSpinner = findViewById(R.id.years);
 
         Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -54,12 +45,10 @@ public class CalendarActivity extends AppCompatActivity {
             years.add(Integer.toString(i));
         }
 
-        Spinner yearsSpinner = (Spinner) findViewById(R.id.years);
-        adapter =
+        ArrayAdapter<String> adapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, years);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         yearsSpinner.setAdapter(adapter);
-
 
         monthsSpinner.setOnItemSelectedListener(
             new AdapterView.OnItemSelectedListener() {

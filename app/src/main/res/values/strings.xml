@@ -1,4 +1,5 @@
 <resources>
   <string name="app_name"></string>
   <string name="logo">logo: SaveYourMoney</string>
+  <string name="map_key">AIzaSyBl2SZ01v9F2YBxi6iFQkDxcx8zKI4FXsA</string>
 </resources>

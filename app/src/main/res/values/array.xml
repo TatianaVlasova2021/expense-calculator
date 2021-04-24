@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="months_spinner">
+    <item>Январь</item>
+    <item>Февраль</item>
+    <item>Март</item>
+    <item>Апрель</item>
+    <item>Май</item>
+    <item>Июнь</item>
+    <item>Июль</item>
+    <item>Август</item>
+    <item>Сентябрь</item>
+    <item>Октябрь</item>
+    <item>Ноябрь</item>
+    <item>Декабрь</item>
+  </string-array>
+  
+  <string-array name="currencies_spinner">
+    <item>RUB</item>
+    <item>BYN</item>
+    <item>USD</item>
+    <item>EUR</item>
+    <item>PLN</item>
+    <item>GBR</item>
+    <item>KZT</item>
+    <item>ILS</item>
+  </string-array>
+</resources>
